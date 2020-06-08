@@ -7,7 +7,8 @@ import json
 # Utilizo json porque si quisiera trabajar con los datos guardados, lo puedo hacer facilmente
 # con un load del archivo, que me devuelve la misma estructura que guarde originalmente, en este
 # caso, un diccionario.
-
+def x(a,b):
+	print(a+b)
 def InterfazUsuario():
 	layout = [[sg.Text('Usuario: ')],
 	          [sg.Input(key='usuario')],
@@ -27,7 +28,7 @@ def InterfazUsuario():
 	return values
 
 def GuardoDatos(jugados) :
-	with open("datos_usuario.json", 'w') as archivo:
+	with open("datos_usuario.json", 'a') as archivo:
 		json.dump(jugados,archivo)
 		archivo.close()
 
@@ -70,6 +71,7 @@ def main(args):
 	jugados[datos_jugador['usuario']]['fecha'] = datos_jugador['fecha']
 	print(jugados)
 	GuardoDatos(jugados)
+	print (x(10,10))
 		
 if __name__ == '__main__':
     import sys
